@@ -24,7 +24,7 @@
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
   // active nav item (sub-sections map to their parent nav entry)
-  var groups = { facility: 'cmp', case: 'cmp', 'cmp-parts': 'cmp', upgrade: 'cmp', consumables: 'parts', test: 'vacuum', why: 'quality' };
+  var groups = { 'cmp-systems': 'cmp', base: 'network', facility: 'cmp', case: 'cmp', 'cmp-parts': 'cmp', upgrade: 'cmp', consumables: 'parts', test: 'vacuum', why: 'quality' };
   var links = {};
   document.querySelectorAll('.nav a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
   var spy = new IntersectionObserver(function (entries) {

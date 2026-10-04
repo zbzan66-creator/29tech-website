@@ -260,7 +260,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,36,71,.1)
 @media (max-width:1180px){
   .g5{grid-template-columns:repeat(3,1fr)}
 }
-@media (max-width:1080px){
+@media (max-width:1240px){
   .burger{display:block}
   .nav{position:fixed;top:var(--hdr);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;padding:8px 24px 20px;box-shadow:0 12px 24px rgba(20,36,71,.12);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;font-size:16px;max-height:calc(100vh - var(--hdr));overflow-y:auto}
   .nav a{padding:14px 0;border-bottom:1px solid var(--card)}
