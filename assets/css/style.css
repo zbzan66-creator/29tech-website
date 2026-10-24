@@ -488,3 +488,7 @@ h1,h2,h3{color:var(--ink)}
 }
 
 .nav .nl,.nav .nl:hover,.nav .nl.on{border:0}
+
+/* visible label on edited / concept images */
+.tph{position:relative;display:inline-block;max-width:100%;line-height:0}
+.tnote{position:absolute;right:12px;bottom:12px;line-height:1.4;background:rgba(11,23,48,.78);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
