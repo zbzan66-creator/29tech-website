@@ -492,3 +492,11 @@ h1,h2,h3{color:var(--ink)}
 /* visible label on edited / concept images */
 .tph{position:relative;display:inline-block;max-width:100%;line-height:0}
 .tnote{position:absolute;right:12px;bottom:12px;line-height:1.4;background:rgba(11,23,48,.78);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
+/* Aso factory plan timeline */
+.plan-tl{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.plan-tl li{background:var(--card,#F1F5FA);border:1px solid var(--cardl,#D9E3EE);border-radius:12px;padding:14px 14px 16px;border-top:4px solid var(--blue)}
+.plan-tl li b{display:block;color:var(--blue);font-size:14px;margin-bottom:6px}
+.plan-tl li span{display:block;font-size:14px;line-height:1.5;color:var(--ink)}
+.plan-tl li.hot{border-top-color:#C2571A;background:#FBEDE3}
+.plan-tl li.hot b{color:#C2571A}
+@media (max-width:900px){.plan-tl{grid-template-columns:repeat(2,1fr)}}
