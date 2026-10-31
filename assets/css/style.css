@@ -643,3 +643,9 @@ dd.our{color:var(--link,#0066cc)}
 .hkind .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4px}
 .hkind strong{display:block;font-size:16px}
 .hkind span{font-size:13px;color:var(--sub)}
+.psec.pmk{font-size:clamp(20px,2.2vw,26px)}
+#pg>.psec.pmk:first-child{margin-top:4px;border-top:0;padding-top:4px}
+.ptier{margin:40px 0 0;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--sub);text-transform:uppercase}
+#pg>.ptier:first-child{margin-top:8px}
+.ptier+.psec.pmk{margin-top:10px;border-top:0;padding-top:6px}
+.ptier[hidden]{display:none}

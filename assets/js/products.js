@@ -1,6 +1,7 @@
 (function () {
   var $ = function (s) { return document.querySelector(s); };
   var grid = $('#pg') || $('.pgrid'); if (!grid) return;
+  var ugrid = $('#ug');
   var q = $('#pq'), mk = $('#pm'), chips = $('#pc'), cnt = $('#pn'), none = $('#p0'), more = $('#pmore');
   var cat = '', PAGE = 48, shown = PAGE;
   var udata = $('#udata') ? JSON.parse($('#udata').textContent) : null;
@@ -32,7 +33,7 @@
     var n = 0;
     if (udata) {
       var hit = udata.filter(function (d) { return match(d.c, d.m, (d.n + ' ' + d.p.join(' ') + ' ' + d.o + ' ' + d.m).toLowerCase()); });
-      n = hit.length; grid.innerHTML = hit.slice(0, shown).map(ucard).join('');
+      n = hit.length; (ugrid || grid).innerHTML = hit.slice(0, shown).map(ucard).join('');
       more.hidden = hit.length <= shown;
     } else {
       document.querySelectorAll('.pgrid .pc').forEach(function (a) {
@@ -40,6 +41,11 @@
       });
       document.querySelectorAll('.psec').forEach(function (h) {   // hide a section heading whose grid is empty
         var g = h.nextElementSibling; if (g) h.hidden = g.hidden = !g.querySelector('.pc:not([hidden])');
+      });
+      document.querySelectorAll('.ptier').forEach(function (t) {  // hide a maker-tier label with no visible group under it
+        var el = t.nextElementSibling, any = false;
+        while (el && !el.classList.contains('ptier')) { if (el.classList.contains('pgrid') && !el.hidden) any = true; el = el.nextElementSibling; }
+        t.hidden = !any;
       });
     }
     cnt.textContent = cnt.dataset.t.replace('{n}', n); none.hidden = n > 0;
