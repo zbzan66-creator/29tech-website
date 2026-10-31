@@ -1,6 +1,6 @@
 (function () {
   var $ = function (s) { return document.querySelector(s); };
-  var grid = $('#pg'); if (!grid) return;
+  var grid = $('#pg') || $('.pgrid'); if (!grid) return;
   var q = $('#pq'), mk = $('#pm'), chips = $('#pc'), cnt = $('#pn'), none = $('#p0'), more = $('#pmore');
   var cat = '', PAGE = 48, shown = PAGE;
   var udata = $('#udata') ? JSON.parse($('#udata').textContent) : null;
@@ -35,8 +35,11 @@
       n = hit.length; grid.innerHTML = hit.slice(0, shown).map(ucard).join('');
       more.hidden = hit.length <= shown;
     } else {
-      grid.querySelectorAll('.pc').forEach(function (a) {
+      document.querySelectorAll('.pgrid .pc').forEach(function (a) {
         var ok = match(a.dataset.c, a.dataset.m, a.dataset.q); a.hidden = !ok; if (ok) n++;
+      });
+      document.querySelectorAll('.psec').forEach(function (h) {   // hide a section heading whose grid is empty
+        var g = h.nextElementSibling; if (g) h.hidden = g.hidden = !g.querySelector('.pc:not([hidden])');
       });
     }
     cnt.textContent = cnt.dataset.t.replace('{n}', n); none.hidden = n > 0;

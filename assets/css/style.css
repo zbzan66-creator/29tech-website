@@ -631,3 +631,15 @@ dd.our{color:var(--link,#0066cc)}
 .hcat h2{margin-top:8px}
 .pcat .chips{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .pcat .chips .chip{flex:none}
+.psec{display:flex;align-items:baseline;gap:12px;font-size:clamp(22px,2.6vw,30px);color:var(--ink);margin:48px 0 16px;padding-top:28px;border-top:1px solid #e8e8ed}
+.psec:first-of-type{margin-top:8px}
+.psec span{font-size:14px;font-weight:500;color:var(--sub)}
+.psec[hidden],.pgrid[hidden]{display:none}
+.ptabs{flex-wrap:wrap;justify-content:center}
+.hkind{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:22px}
+.hkind a{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e8e8ed;border-radius:16px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.hkind a:hover{border-color:var(--link,#0066cc)}
+.hkind .im{flex:none;width:64px;height:64px;border-radius:10px;background:#f5f5f7;position:relative;overflow:hidden}
+.hkind .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4px}
+.hkind strong{display:block;font-size:16px}
+.hkind span{font-size:13px;color:var(--sub)}
