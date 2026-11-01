@@ -1,11 +1,11 @@
 (function () {
   var $ = function (s) { return document.querySelector(s); };
-  var grid = $('#pg') || $('.pgrid'); if (!grid) return;
+  var grid = $('#pg') || $('.pgrid') || $('#ug'); if (!grid) return;
   var ugrid = $('#ug');
   var q = $('#pq'), mk = $('#pm'), chips = $('#pc'), cnt = $('#pn'), none = $('#p0'), more = $('#pmore');
-  var cat = '', PAGE = 48, shown = PAGE;
   var udata = $('#udata') ? JSON.parse($('#udata').textContent) : null;
   var ui = $('#ui') ? JSON.parse($('#ui').textContent) : null;
+  var cat = '', PAGE = ui && ui.table ? 100 : 48, shown = PAGE;
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   // hash: #c=<cat> preselects a category (links from the home page)
   var h = location.hash.match(/c=([a-z]+)/); if (h) cat = h[1];
@@ -29,11 +29,16 @@
       '<dt>' + esc(ui.our) + '</dt><dd class="our">' + esc(d.o) + '</dd></dl>' +
       '<a class="pc-ask" href="' + esc(mail(d)) + '">' + esc(ui.ask) + '</a></div></article>';
   };
+  // P/N list page: a plain table row (no photo box) per 29TECH P/N
+  var urow = function (d) {
+    return '<tr><td class="t-mk">' + esc(d.m || '—') + '</td><td class="t-ty">' + esc(d.t || d.n) + '</td><td class="t-pn">' + esc(d.p.join(' / ')) +
+      '</td><td class="t-our">' + esc(d.o) + '</td><td class="t-ask"><a href="' + esc(mail(d)) + '">' + esc(ui.ask_s || ui.ask) + '</a></td></tr>';
+  };
   var apply = function () {
     var n = 0;
     if (udata) {
       var hit = udata.filter(function (d) { return match(d.c, d.m, (d.n + ' ' + d.p.join(' ') + ' ' + d.o + ' ' + d.m).toLowerCase()); });
-      n = hit.length; (ugrid || grid).innerHTML = hit.slice(0, shown).map(ucard).join('');
+      n = hit.length; (ugrid || grid).innerHTML = hit.slice(0, shown).map(ui.table ? urow : ucard).join('');
       more.hidden = hit.length <= shown;
     } else {
       document.querySelectorAll('.pgrid .pc').forEach(function (a) {
