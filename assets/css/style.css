@@ -599,7 +599,7 @@ dd.our{color:var(--link,#0066cc)}
 /* home: repair catalog strip */
 .hcat{padding:8px 0 0}
 .hcat h2{text-align:center;font-size:clamp(28px,3.6vw,44px);color:var(--ink);margin-bottom:22px}
-.hcat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.hcat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
 .hcat-g a{display:flex;flex-direction:column;background:#f5f5f7;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .2s}
 .hcat-g a:hover{transform:translateY(-2px)}
 .hcat-g .im{aspect-ratio:4/3;background:#fff}
@@ -673,3 +673,38 @@ dd.our{color:var(--link,#0066cc)}
   .ptbl .t-ask{grid-column:2;grid-row:1/span 4;align-self:center}
 }
 .hkind .im .ki{position:absolute;inset:0;margin:auto;width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* 修理対応品目 map (products/index.html) — owner 2026-11-01: 品类清晰, several examples per part type */
+.pmap{margin:4px 0 60px}
+.pmap-h{text-align:center;margin-bottom:6px}
+.pmap-h h2{font-size:clamp(24px,3vw,34px);font-weight:800}
+.pmap-h p{color:var(--sub);font-size:14.5px;margin-top:6px}
+.pmap-g{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--blue);margin:30px 0 12px}
+.pmap-g::after{content:"";flex:1;height:1px;background:#e3e7ee}
+.pmap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.pm-c{background:#fff;border:1px solid #e3e7ee;border-radius:16px;overflow:hidden;scroll-margin-top:100px}
+.pm-top{display:flex;align-items:center;gap:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:#f7f9fc;border-bottom:1px solid #edf0f4}
+.pm-top:hover .pm-go{text-decoration:underline}
+.pm-im{flex:none;width:56px;height:56px;border-radius:10px;background:#fff;border:1px solid #edf0f4;position:relative;overflow:hidden;display:grid;place-items:center;color:var(--blue)}
+.pm-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:3px}
+.pm-im .ki{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pm-t{flex:1;min-width:0}.pm-t b{display:block;font-size:16.5px;line-height:1.35}.pm-t small{color:var(--sub);font-size:12.5px}
+.pm-go{flex:none;font-size:12.5px;font-weight:700;color:var(--blue);white-space:nowrap}
+.pm-c ul{list-style:none;margin:0;padding:6px 0}
+.pm-c li a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:8px 16px;text-decoration:none;color:var(--ink)}
+.pm-c li a:hover{background:#f5f8fd}
+.pm-c li b{font-size:14px;font-weight:700;line-height:1.4}
+.pm-ex{grid-column:1;font-size:12.5px;color:#5b6575;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pm-n{grid-column:2;grid-row:1/span 2;align-self:center;font-size:12.5px;font-weight:700;color:var(--blue);background:#eef4fc;border-radius:999px;padding:2px 10px}
+.pmap-ph{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin:0 0 18px;padding-top:28px;border-top:1px solid #e3e7ee;scroll-margin-top:100px}
+.pcat .chips.psub{margin-top:-2px}
+.pcat .chips.psub .chip{font-size:12.5px;padding:6px 12px;background:#f4f6f9;border-color:#e6eaf0}
+.pcat .chips.psub .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (max-width:760px){.pmap-grid{grid-template-columns:1fr}.pm-go{display:none}}
+/* home category tiles, grouped */
+.hcat-gh{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--blue);margin:22px 0 10px}
+.hcat-g .im{display:grid;place-items:center;color:var(--blue)}
+.hcat-g .hci{width:46px;height:46px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.hcat-g em{font-style:normal;font-size:12px;color:var(--sub);padding:3px 12px 2px;line-height:1.45}
+.poem-g a{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid #e8e8ed;background:#fff;border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+.poem-g a:hover{border-color:var(--link,#0066cc);color:var(--link,#0066cc)}
