@@ -672,3 +672,4 @@ dd.our{color:var(--link,#0066cc)}
   .ptbl .t-pn{grid-column:1}.ptbl .t-our{grid-column:1;font-size:13px}
   .ptbl .t-ask{grid-column:2;grid-row:1/span 4;align-self:center}
 }
+.hkind .im .ki{position:absolute;inset:0;margin:auto;width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}

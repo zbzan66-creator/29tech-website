@@ -38,7 +38,7 @@
     var n = 0;
     if (udata) {
       var hit = udata.filter(function (d) { return match(d.c, d.m, (d.n + ' ' + d.p.join(' ') + ' ' + d.o + ' ' + d.m).toLowerCase()); });
-      n = hit.length; (ugrid || grid).innerHTML = hit.slice(0, shown).map(ui.table ? urow : ucard).join('');
+      n = ui.table ? hit.reduce(function (a, d) { return a + d.p.length; }, 0) : hit.length; (ugrid || grid).innerHTML = hit.slice(0, shown).map(ui.table ? urow : ucard).join('');
       more.hidden = hit.length <= shown;
     } else {
       document.querySelectorAll('.pgrid .pc').forEach(function (a) {
