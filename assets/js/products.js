@@ -24,7 +24,7 @@
     var g = esc(JSON.stringify([ui.img + d.i + '.jpg']));
     return '<article class="pc"><button type="button" class="pc-ph" data-g="' + g + '" aria-label="' + esc(d.n) + '">' +
       (d.i ? '<img src="' + ui.img + d.i + '.jpg" alt="' + esc(d.n) + '" loading="lazy" decoding="async">' : '<span class="pc-noimg"><b>' + esc(d.m || 'OEM') + '</b><small>' + esc(ui.cats[d.c] || '') + '</small></span>') + '</button>' +
-      '<div class="pc-b"><span class="pc-tag t-used">' + esc(ui.used) + '</span><h3>' + esc(d.n) + '</h3><dl>' +
+      '<div class="pc-b"><span class="pc-tag ' + (ui.tagc || 't-used') + '">' + esc(ui.used) + '</span><h3>' + esc(d.n) + '</h3><dl>' +
       (d.p.length ? '<dt>' + esc(ui.oem) + '</dt><dd>' + esc(d.p.slice(0, 3).join(' / ')) + (d.p.length > 3 ? ' <span class="pc-more">+' + (d.p.length - 3) + '</span>' : '') + '</dd>' : '') +
       '<dt>' + esc(ui.our) + '</dt><dd class="our">' + esc(d.o) + '</dd></dl>' +
       '<a class="pc-ask" href="' + esc(mail(d)) + '">' + esc(ui.ask) + '</a></div></article>';
