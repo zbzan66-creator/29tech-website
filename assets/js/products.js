@@ -121,6 +121,7 @@
   window.addEventListener('hashchange', function () {
     if (!readHash()) return;
     shown = PAGE; setChip(); renderSubs(); apply();
+    if (!location.hash) return;
     var t = document.querySelector('.ptool'); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
   });
   q.addEventListener('input', function () { shown = PAGE; apply(); });
