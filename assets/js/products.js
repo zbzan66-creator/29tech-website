@@ -11,8 +11,12 @@
   var pt = '', subs = $('#pt');
   var readHash = function () {
     if (location.hash === '#all') { cat = ''; pt = ''; if (mk) mk.value = ''; return true; }
-    var h = location.hash.match(/[#&]c=([a-z]+)/), t = location.hash.match(/[#&]t=([a-z]+)/), m = location.hash.match(/[#&]m=([^&]+)/);
-    if (!h && !m) return false;
+    var h = location.hash.match(/[#&]c=([a-z_]+)/), t = location.hash.match(/[#&]t=([a-z_]+)/), m = location.hash.match(/[#&]m=([^&]+)/);
+    if (!h && !m) {
+      if (location.hash) return false;
+      cat = ''; pt = ''; if (mk) mk.value = '';     // back to the page without a hash: the filter goes too
+      return true;
+    }
     cat = h ? h[1] : ''; pt = t ? t[1] : '';
     if (mk) { mk.value = ''; if (m) { try { mk.value = decodeURIComponent(m[1]); } catch (e) {} } }
     return true;
