@@ -86,7 +86,7 @@
         var ok = match(a.dataset.c, a.dataset.m, a.dataset.q, a.dataset.k); a.hidden = !ok;
         if (ok) { shownCards++; if (a.dataset.only) n++; }
       });
-      var wrap = $('#pcwrap'); if (wrap) wrap.hidden = !(shownCards && (cat || mk.value || words().length));
+      var wrap = $('#pcwrap'); if (wrap) wrap.hidden = !(shownCards && (ui.always || cat || mk.value || words().length));
       (ugrid || grid).innerHTML = hit.slice(0, shown).map(ui.table ? urow : ucard).join('');
       more.hidden = hit.length <= shown;
     } else {
