@@ -758,3 +758,22 @@ dd.our{color:var(--link,#0066cc)}
 .hcat-g .im{aspect-ratio:4/3;background:#fff;padding:8px}
 .hcat-g strong{padding:10px 10px 0;border-top:1px solid #f0f2f6;font-size:14.5px;line-height:1.35}
 .hcat-g span:not(.im){padding:2px 10px 11px}
+
+/* product tree: trunk, branches, leaves */
+.ptm-sec{margin:0 0 44px}
+.ptm-h{text-align:center;margin-bottom:8px}
+.ptm-h h2{font-size:clamp(24px,3vw,34px);font-weight:800}
+.ptm-h p{color:var(--sub);font-size:14px;margin-top:4px}
+.ptm-w{width:min(1560px,calc(100vw - 24px));margin-left:50%;transform:translateX(-50%);overflow-x:auto}
+.ptm{display:block;width:100%;min-width:1040px;height:auto;font-family:inherit}
+.ptm a{cursor:pointer}
+.ptm text{font-size:12.5px;fill:#2B3E63}
+.ptm .tm-n{fill:#8A94A6;font-size:11.5px}
+.ptm .tm-c text{font-size:13.5px;font-weight:700;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;fill:#142447}
+.ptm .tm-m text{font-size:14px;font-weight:700;fill:#fff}
+.ptm .tm-rt{font-size:23px;font-weight:800;fill:#fff}
+.ptm .tm-rn{font-size:13.5px;fill:#cfe0f5}
+.ptm .tm-b,.ptm .tm-limb{transition:opacity .15s}
+.ptm .tm-l:hover text{fill:var(--blue);font-weight:700}
+.ptm .tm-l:hover circle{stroke:#142447;stroke-width:1.5}
+.ptm:has(.tm-b:hover) .tm-b:not(:hover){opacity:.28}

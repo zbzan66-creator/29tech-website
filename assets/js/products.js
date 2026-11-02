@@ -72,6 +72,7 @@
     if (bc) { bc.hidden = !cat; bc.textContent = cl; }
     if (bt) { bt.hidden = !pt; bt.textContent = tl; }
   };
+  var tmw = $('.ptm-w'); if (tmw) tmw.scrollLeft = (tmw.scrollWidth - tmw.clientWidth) / 2;   // phones: start at the trunk
   var treeBtn = $('.ptree-btn'), tree = $('.ptree');
   if (treeBtn && tree) treeBtn.addEventListener('click', function () { var o = tree.classList.toggle('open'); treeBtn.setAttribute('aria-expanded', o); });
   if (tree) tree.addEventListener('click', function (ev) { if (ev.target.closest('a') && treeBtn) { tree.classList.remove('open'); treeBtn.setAttribute('aria-expanded', false); } });
