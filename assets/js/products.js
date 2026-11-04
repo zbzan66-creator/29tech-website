@@ -3,6 +3,7 @@
   var grid = $('#pg') || $('#ug') || $('.pgrid'); if (!grid) return;
   var ugrid = $('#ug');
   var q = $('#pq'), mk = $('#pm'), chips = $('#pc'), cnt = $('#pn'), none = $('#p0'), more = $('#pmore');
+  var sq = new URLSearchParams(location.search).get('q'); if (sq && q) q.value = sq;   // ?q= from the home page search
   var udata = $('#udata') ? JSON.parse($('#udata').textContent) : null;
   var ui = $('#ui') ? JSON.parse($('#ui').textContent) : null;
   var cat = '', PAGE = ui && ui.table ? 100 : 48, shown = PAGE;
