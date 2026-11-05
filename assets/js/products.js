@@ -62,7 +62,8 @@
   };
   // P/N list page: a plain table row (no photo box) per 29TECH P/N
   var urow = function (d) {
-    return '<tr><td class="t-mk">' + esc(d.m || '—') + '</td><td class="t-ty">' + esc(ui.pts[d.k] || d.n) + '</td><td class="t-pn">' + esc(d.p.join(' / ')) +
+    var has = ui.th && Object.keys(ui.th).length, tn = has && ui.th[d.k] ? 'tc-' + d.k : '';
+    return '<tr>' + (has ? '<td class="t-im">' + (tn ? '<button type="button" class="pc-ph" data-g="' + esc(JSON.stringify([ui.pimg + tn + '.jpg'])) + '" aria-label="' + esc(d.n) + '"><img src="' + ui.pimg + tn + '_t.jpg" alt="" loading="lazy" decoding="async"></button>' : '') + '</td>' : '') + '<td class="t-mk">' + esc(d.m || '—') + '</td><td class="t-ty">' + esc(ui.pts[d.k] || d.n) + '</td><td class="t-pn">' + esc(d.p.join(' / ')) +
       '</td><td class="t-our">' + esc(d.o) + '</td><td class="t-ask"><a href="' + esc(mail(d)) + '">' + esc(ui.ask_s || ui.ask) + '</a></td></tr>';
   };
   // left tree: open the current category, mark the current part type; heading and breadcrumb follow
