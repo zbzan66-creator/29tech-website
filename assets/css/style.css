@@ -787,3 +787,23 @@ dd.our{color:var(--link,#0066cc)}
 .hsearch{max-width:640px;margin:18px auto 28px;padding:0 6px 0 16px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
 .hsearch button{flex:none;height:38px;padding:0 20px;border:0;border-radius:9px;background:var(--blue);color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
 .hsearch button:hover{background:var(--navy)}
+
+/* home hero: product wall and real catalog figures (owner 2026-11-05) */
+.bighero{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center;padding:64px 56px;background:linear-gradient(135deg,#f7f9fc 0%,#eaf0f8 100%);border-radius:var(--r,22px)}
+.bighero{text-align:left}
+.bighero h1{text-wrap:balance;font-size:clamp(30px,3.9vw,56px);font-weight:800;line-height:1.14;letter-spacing:-.015em;color:var(--navy);margin:10px 0 0}
+.bighero .tsub{font-size:18px;line-height:1.7;color:#4a5363;margin:20px 0 0;max-width:32em;text-indent:0;text-align:left}
+.bighero .tlinks{margin-top:26px;justify-content:flex-start}
+.bh-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bh-wall span{display:block;aspect-ratio:1;background:#f5f5f7;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(16,30,54,.07)}
+.bh-wall img{display:block;width:100%;height:100%;object-fit:contain}
+.bh-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:12px 0}
+.bh-stats a{display:block;background:var(--navy);color:#fff;border-radius:14px;padding:24px 20px;text-decoration:none;transition:background .2s}
+.bh-stats a:hover{background:var(--blue)}
+.bh-stats b{display:block;font-size:clamp(24px,2.6vw,38px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.bh-stats span{display:block;margin-top:6px;font-size:13px;color:#d6e0ee}
+@media (max-width:860px){
+  .bighero{grid-template-columns:1fr;gap:28px;padding:40px 20px}
+  .bh-stats{grid-template-columns:repeat(2,1fr)}
+  .bh-stats a{padding:16px 14px}
+}
