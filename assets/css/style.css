@@ -821,3 +821,8 @@ dd.our{color:var(--link,#0066cc)}
 .pg-c h3{font-size:18px;font-weight:800;color:var(--navy,#1F3566);margin:0 0 14px;letter-spacing:.01em}
 .pg-c .pwall{grid-template-columns:repeat(2,1fr);gap:10px;margin:0}
 @media (max-width:860px){.pgrp{grid-template-columns:1fr}}
+
+/* 2026-11-07 logo: keep full width in the flex header (EN logo was squeezed by img max-width) */
+.brand{flex-shrink:0}
+.brand img{max-width:none}
+@media (min-width:1181px){.lang-en .nav .nl{padding:18px 7px;font-size:13px}}
