@@ -816,3 +816,8 @@ dd.our{color:var(--link,#0066cc)}
 .pw-i img{display:block;width:100%;height:100%;object-fit:contain}
 .pw-i b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13.5px;font-weight:600;line-height:1.45;margin:10px 12px 12px;text-align:left}
 @media (max-width:860px){.pwall{grid-template-columns:repeat(2,1fr);gap:10px}.pw-i b{font-size:12.5px}}
+.pgrp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 36px}
+.pg-c{border:1px solid #e3e7ee;border-radius:18px;background:#f8fafc;padding:18px}
+.pg-c h3{font-size:18px;font-weight:800;color:var(--navy,#1F3566);margin:0 0 14px;letter-spacing:.01em}
+.pg-c .pwall{grid-template-columns:repeat(2,1fr);gap:10px;margin:0}
+@media (max-width:860px){.pgrp{grid-template-columns:1fr}}
