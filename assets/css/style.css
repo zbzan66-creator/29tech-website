@@ -9,6 +9,7 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 12px);-webkit-t
 body{margin:0;background:#fff;color:var(--ink);font:400 16px/1.75 "Inter","Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .lang-jp{font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-break:strict;overflow-wrap:anywhere}
 img{max-width:100%;display:block}
+[hidden]{display:none!important}   /* .btn / .chips / .pgrid set display and used to beat the UA [hidden] rule */
 a{color:inherit}
 h1,h2,h3{margin:0;line-height:1.3;color:var(--navy)}
 p{margin:0}
@@ -391,7 +392,7 @@ h1,h2,h3{color:var(--ink)}
 .band{border-radius:var(--r);text-align:center;font-weight:600}
 .fig .ph{border:0;border-radius:18px;background:#fff}
 .sec.alt .fig .ph{background:#fff}
-.sec:not(.alt) .fig .ph.contain{background:#f5f5f7}
+.sec:not(.alt) .fig .ph.contain{background:transparent}
 .fig figcaption{text-align:center;font-weight:500;color:var(--sub);font-size:13px}
 .fig figcaption::before{content:""}
 .tbl-wrap{border:0;border-radius:16px}
@@ -464,7 +465,7 @@ h1,h2,h3{color:var(--ink)}
 .nav .nav-cta,.hdr-in>.langs{display:none}
 /* footer sitemap */
 .ftr{padding:48px 0 30px;font-size:12.5px}
-.fmap{display:grid;grid-template-columns:repeat(8,1fr);gap:24px 18px;padding-bottom:30px;border-bottom:1px solid #d2d2d7}
+.fmap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 18px;padding-bottom:30px;border-bottom:1px solid #d2d2d7}
 .fcol{display:flex;flex-direction:column;gap:8px}
 .fcol a{color:var(--sub);text-decoration:none;line-height:1.35}
 .fcol a:hover{color:var(--ink);text-decoration:underline}
@@ -479,7 +480,7 @@ h1,h2,h3{color:var(--ink)}
   .nav{position:fixed;top:var(--hdr);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;padding:6px 24px 22px;box-shadow:0 12px 24px rgba(20,36,71,.12);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;max-height:calc(100vh - var(--hdr));overflow-y:auto}
   .menu-open .nav{opacity:1;visibility:visible;transform:none}
   .nav .nl{padding:14px 0;font-size:16px;border-bottom:1px solid #f0f0f2}
-  .nav .dd{position:static;transform:none;opacity:1;visibility:visible;padding:0}
+  .nav .dd{position:static;transform:none;opacity:1;visibility:inherit;padding:0}   /* 2026-11-07: 'visible' left the closed menu's links tappable (invisibly) over the page */
   .nav .dd-in{box-shadow:none;padding:2px 0 8px 12px;min-width:0;background:transparent}
   .nav .dd a{padding:7px 0;font-size:14px;color:var(--sub);white-space:normal}
   .nav .nav-cta{display:block;margin-top:14px;text-align:center;padding:12px}
@@ -487,8 +488,7 @@ h1,h2,h3{color:var(--ink)}
 }
 @media (max-width:680px){
   .topbar .tagline{display:none}
-  .topbar .langs{display:none}
-  .topbar-in{justify-content:flex-end}
+  .topbar-in{justify-content:space-between}
   .fmap{grid-template-columns:1fr 1fr}
 }
 
@@ -511,12 +511,9 @@ h1,h2,h3{color:var(--ink)}
 .lang-jp .capi strong,.lang-jp .tile h2,.lang-jp .tsub,.lang-jp .h3l,.lang-jp .sh h2,.lang-jp .fig figcaption{word-break:auto-phrase;overflow-wrap:anywhere}
 @media (max-width:640px){.capi{padding:16px 14px}}
 .netmap svg{overflow:visible}
-@media (max-width:1180px){.g5>.loc:last-child{grid-column:span 2}}
-@media (max-width:960px){.g5>.loc:last-child{grid-column:1/-1}}
 
 /* 2026-10-25 audit fixes (2) */
 @media print{.js .reveal{opacity:1!important;transform:none!important}.hdr{position:static!important}.skip{display:none}}
-.lang-jp .ph{display:inline-block}
 p.netmap-note.reveal{color:#5A6B80}
 .fcol a.nw{white-space:nowrap}
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -557,7 +554,7 @@ dd.our{color:var(--link,#0066cc)}
 .psearch{flex:1 1 320px;display:flex;align-items:center;gap:10px;background:#f5f5f7;border-radius:12px;padding:0 16px;height:48px}
 .psearch svg{width:20px;height:20px;fill:none;stroke:var(--sub);stroke-width:2;flex:none}
 .psearch input{flex:1;border:0;background:none;font:inherit;font-size:16px;outline:none;min-width:0;color:var(--ink)}
-.ptool select{height:48px;border-radius:12px;border:1px solid var(--cardl);background:#fff;font:inherit;font-size:15px;padding:0 12px;color:var(--ink);max-width:100%}
+.ptool select{height:48px;border-radius:12px;border:1px solid var(--cardl);background:#fff;font:inherit;font-size:16px;padding:0 12px;color:var(--ink);max-width:100%}
 .pcount{font-size:14px;color:var(--sub);margin-left:auto}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 18px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
@@ -568,7 +565,6 @@ dd.our{color:var(--link,#0066cc)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:18px}
 .pc{display:flex;flex-direction:column;background:#fff;border:1px solid #e8e8ed;border-radius:18px;overflow:hidden;transition:box-shadow .2s,transform .2s}
 .pc:hover{box-shadow:0 10px 30px rgba(0,0,0,.08);transform:translateY(-2px)}
-.pc[hidden]{display:none}
 .pc-ph{display:block;border:0;padding:0;background:#f5f5f7;aspect-ratio:4/3;cursor:zoom-in;width:100%}
 .pc-ph img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
 .pc-noimg{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--sub);gap:4px;cursor:default}
@@ -634,7 +630,6 @@ dd.our{color:var(--link,#0066cc)}
 .psec{display:flex;align-items:baseline;gap:12px;font-size:clamp(22px,2.6vw,30px);color:var(--ink);margin:48px 0 16px;padding-top:28px;border-top:1px solid #e8e8ed}
 .psec:first-of-type{margin-top:8px}
 .psec span{font-size:14px;font-weight:500;color:var(--sub)}
-.psec[hidden],.pgrid[hidden]{display:none}
 .ptabs{flex-wrap:wrap;justify-content:center}
 .hkind{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:22px}
 .hkind a{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e8e8ed;border-radius:16px;padding:12px 16px;text-decoration:none;color:var(--ink)}
@@ -648,7 +643,6 @@ dd.our{color:var(--link,#0066cc)}
 .ptier{margin:40px 0 0;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--sub);text-transform:uppercase}
 #pg>.ptier:first-child{margin-top:8px}
 .ptier+.psec.pmk{margin-top:10px;border-top:0;padding-top:6px}
-.ptier[hidden]{display:none}
 
 /* P/N list table (list.html) */
 .ptbl-w{border:1px solid #e3e7ee;border-radius:14px;overflow:hidden;margin-top:6px;background:#fff}
@@ -661,7 +655,7 @@ dd.our{color:var(--link,#0066cc)}
 .ptbl .t-im img{display:block}
 .ptbl .t-mk{font-weight:700;white-space:nowrap}
 .ptbl .t-ty{color:#4a5363}
-.ptbl .t-pn{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;letter-spacing:.01em;word-break:break-all}
+.ptbl .t-pn{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;letter-spacing:.01em;overflow-wrap:anywhere}
 .ptbl .t-our{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--blue);font-weight:600;white-space:nowrap}
 .ptbl .t-ask{text-align:right;white-space:nowrap}
 .ptbl .t-ask a{display:inline-block;font-size:13px;font-weight:700;color:var(--blue);text-decoration:none;border:1.5px solid #cfe0f5;border-radius:999px;padding:4px 14px}
@@ -678,7 +672,32 @@ dd.our{color:var(--link,#0066cc)}
   .ptbl .t-mk{grid-column:1}.ptbl .t-ty{grid-column:1;font-size:13px}
   .ptbl .t-pn{grid-column:1}.ptbl .t-our{grid-column:1;font-size:13px}
   .ptbl .t-ask{grid-column:2;grid-row:1/span 4;align-self:center}
+  /* 2026-11-07: long maker names no longer push the Inquire button out of the box; the P/N line says what it is */
+  .ptbl tr{grid-template-columns:minmax(0,1fr) auto}
+  .ptbl.has-im tr{grid-template-columns:70px minmax(0,1fr) auto}
+  .ptbl .t-mk{white-space:normal;overflow-wrap:anywhere}
+  .ptbl .t-pn::before{content:attr(data-l) ' ';font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","PingFang SC","Apple SD Gothic Neo","Noto Sans JP",sans-serif;font-weight:600;font-size:11px;color:var(--sub)}
+  .ptabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;border-radius:16px;width:100%}
+  .ptabs a{display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 4px;font-size:13.5px;line-height:1.25;border-radius:12px}
 }
+/* desktop: the column labels stay in view in long lists; the empty table keeps its place until the rows arrive */
+.ptbl-w{overflow:hidden;overflow:clip}
+@media (min-width:761px){.ptbl thead th{position:sticky;top:var(--hdr);z-index:2}}
+.ptbl-w:has(tbody:empty){min-height:60vh}
+#pn{scroll-margin-top:calc(var(--hdr) + 12px)}
+.pnw{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+.pc-b .pc-mk{margin:8px 0 0;font-size:12.5px;font-weight:700;color:var(--sub);letter-spacing:.02em}
+.pc-b .pc-mk+h3{margin-top:2px}
+.poem-more{margin-top:12px}
+.poem-more summary{cursor:pointer;display:inline-block;padding:10px 0;font-size:15px;font-weight:600;color:var(--link,#0066cc)}
+.poem-more summary:hover{text-decoration:underline}
+.poem-more .poem-g{margin-top:6px}
+.poem-g a span,.poem-g button span{flex:none;white-space:nowrap}     /* '959' stayed one number on phones */
+.pnone .p0-l{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:12px;font-size:14px}
+.pnone .p0-l b{font-weight:600;color:var(--ink)}
+.pnone .p0-l a{color:var(--link,#0066cc);text-decoration:none;font-weight:600}
+.pnone .p0-l a:hover{text-decoration:underline}
+.pmain .plnote+#pcwrap{margin-top:32px}
 .hkind .im .ki{position:absolute;inset:0;margin:auto;width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* 修理対応品目 map (products/index.html) — owner 2026-11-01: 品类清晰, several examples per part type */
@@ -772,7 +791,7 @@ dd.our{color:var(--link,#0066cc)}
 .ptm-h h2{font-size:clamp(24px,3vw,34px);font-weight:800}
 .ptm-h p{color:var(--sub);font-size:14px;margin-top:4px}
 .ptm-w{width:min(1560px,calc(100vw - 24px));margin-left:50%;transform:translateX(-50%);overflow-x:auto}
-.ptm{display:block;width:100%;min-width:1040px;height:auto;font-family:inherit}
+.ptm{display:block;width:100%;min-width:1250px;height:auto;font-family:inherit}
 .ptm a{cursor:pointer}
 .ptm text{font-size:12.5px;fill:#2B3E63}
 .ptm .tm-n{fill:#8A94A6;font-size:11.5px}
@@ -827,3 +846,165 @@ dd.our{color:var(--link,#0066cc)}
 .brand img{max-width:none}
 @media (min-width:1181px){.lang-en .nav .nl{padding:18px 7px;font-size:13px}}
 h1,h2{text-wrap:balance}
+
+/* ===================== 2026-11-07 w4: phone layout, headings, tables, menu ===================== */
+/* top bar on phones: language switch visible, taller Contact pill (T06 / T39) */
+@media (max-width:680px){
+  :root{--tb:36px;--hdr:88px}
+  .hdr-in{height:52px}
+  .topbar-in{gap:8px}
+  .topbar .langs{display:flex;gap:1px}
+  .topbar .langs a,.topbar .langs .on{font-size:11.5px;padding:5px 7px;line-height:1.3}
+  .topbar .tb-cta{padding:8px 12px;line-height:1.3}
+}
+@media (max-width:360px){.topbar .langs a,.topbar .langs .on{padding:4px 5px;font-size:11px}.topbar .tb-cta{padding-inline:10px}}
+.tb-cta.on{background:#0066cc}
+
+/* home category tiles and catalog cards: 2 per row on phones; tree diagram only on tablet / desktop (T07) */
+@media (max-width:600px){
+  .hcat-g{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .hcat-g strong{font-size:13.5px;padding:8px 8px 0}
+  .hcat-g span:not(.im),.hcat-g em{padding:2px 8px 10px}
+}
+.hcat-g .im:has(.hci){background:#f5f8fd}
+@media (max-width:760px){.pmain .pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ptm-sec{display:none}}
+
+/* CJK headings break between phrases only (<wbr> from build_site.py hx()); break-word is the safety net (T08) */
+.lang-jp :is(.phero h1,.bighero h1,.tile h1,.tile h2,.sh h2,.hcat h2,.hcat-g strong,.capi strong,.eyebrow),
+.lang-zh :is(.phero h1,.bighero h1,.tile h1,.tile h2,.sh h2,.hcat h2,.hcat-g strong,.capi strong,.eyebrow),
+.lang-tw :is(.phero h1,.bighero h1,.tile h1,.tile h2,.sh h2,.hcat h2,.hcat-g strong,.capi strong,.eyebrow){word-break:keep-all;overflow-wrap:break-word}
+@media (max-width:480px){.phero h1{font-size:30px}}
+
+/* data tables on phones: key/value and stacked rows instead of sideways scrolling (T09) */
+.tbl tbody th{white-space:normal}
+@media (max-width:680px){
+  .tbl-wrap.kv .tbl thead,.tbl-wrap.stack .tbl thead{display:none}
+  .tbl-wrap.kv .tbl tr,.tbl-wrap.stack .tbl tr{display:block;padding:10px 14px;border-top:1px solid #e6edf5}
+  .tbl-wrap.kv .tbl tbody tr:first-child,.tbl-wrap.stack .tbl tbody tr:first-child{border-top:0}
+  .tbl-wrap.kv .tbl tbody th,.tbl-wrap.kv .tbl td,.tbl-wrap.stack .tbl tbody th{display:block;width:auto;padding:0 0 4px;border:0;white-space:normal}
+  .tbl-wrap.stack .tbl td{display:flex;gap:10px;padding:2px 0;border:0;white-space:normal}
+  .tbl-wrap.stack .tbl td::before{content:attr(data-label);flex:0 0 7em;color:var(--sub);font-size:12px;font-weight:600;line-height:1.5;padding-top:2px;white-space:normal}
+  .tbl-wrap.stack.compact .tbl td{white-space:nowrap}
+}
+
+@media (max-width:1180px){.g2.tbl2{grid-template-columns:minmax(0,1fr)}}   /* the two ESC P/N tables side by side need >= 1,180 px */
+
+/* test page frames (T10) */
+.sec .panel .fig .ph.contain{background:#fff}
+
+/* polish (T16) */
+@media (min-width:1181px){   /* the last two menus (Test hardware, About) open to the left so they are not cut off at 1181-1365 px */
+  .nav .ni:nth-last-child(-n+4) .dd{left:auto;right:0;transform:translate(0,6px)}   /* nav children end: ... Test, About, .nav-cta, .langs-m */
+  .nav .ni:nth-last-child(-n+4):hover .dd,.nav .ni:nth-last-child(-n+4):focus-within .dd{transform:none}
+}
+.contact .lead{margin-left:0;margin-right:0}
+.timg.contain .tph{margin-bottom:44px;max-width:min(100%,760px)}
+.timg.contain .tph img{margin-bottom:0;max-width:100%}
+@media (max-width:900px){.timg.contain .tph{margin-bottom:28px}}
+.tnote{width:max-content;max-width:max(calc(100% - 24px),12em)}   /* 12em floor: before a lazy 'contain' photo loads its frame is 0 px wide and the label stood as a 1-character column */
+.ftr{border-top:1px solid #e3e3e8}
+.fcol a.fsub{padding-left:1em}
+@media (max-width:860px){.bh-stats a:first-child{grid-column:1/-1}}
+@media (max-width:1100px){.capgrid>.capi:last-child:nth-child(odd){grid-column:1/-1}}
+.pg-c .pw-i b{-webkit-line-clamp:3}
+.pg-c.pg-1 .pwall{grid-template-columns:minmax(0,1fr)}   /* a family with one photo fills its panel instead of leaving it half empty */
+@media (max-width:480px){.pg-c{padding:12px}}
+
+/* structure (T17) */
+.vh{position:absolute!important;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sh.sh-vh{margin:0}
+.phero+.sec{padding-top:48px}
+.band.prio{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-top:20px}
+.band.prio .sky{color:var(--sky)}
+.g-5-7.factory{align-items:stretch}
+.g-5-7.factory>.reveal>.panel.dark{height:100%;display:flex;flex-direction:column;justify-content:center}
+.bh-cap{margin:6px 4px -14px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--sub)}
+/* home: proof points under the catalog figures (w5 T25) — plain text links, no icons or badges */
+.proof{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px;margin:-2px 4px 0;padding:0;font-size:13px;line-height:1.55;color:var(--sub);text-align:center}
+.proof a{color:inherit;text-decoration:none;border-bottom:1px solid var(--cardl)}
+.proof a:hover{color:var(--link,#0066cc);border-bottom-color:currentColor}
+@media (max-width:680px){.proof{flex-direction:column;align-items:flex-start;gap:6px;text-align:left;margin:0 6px}}
+/* stat strip with a single tile (vacuum electronics after the owner removed two tiles, 2026-11-07) */
+.kpis.k1{grid-template-columns:1fr}
+/* JP etch hero: the line break after 「炉、」 is for wide screens only (phones break the list naturally) */
+@media (max-width:680px){.lang-jp.page-etch .phero h1 br{display:none}}
+
+/* burger menu (<=1180px): sub-menus fold behind a chevron; page behind does not scroll (T19) */
+.dd-t{display:none}
+@media (max-width:1180px){
+  .nav{max-height:calc(100vh - var(--hdr));max-height:calc(100dvh - var(--hdr));overscroll-behavior:contain}
+  .nav .ni{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;border-bottom:1px solid #f0f0f2}
+  .nav .nl{border-bottom:0}
+  .nav .dd{display:none;grid-column:1/-1}
+  .nav .ni.open .dd{display:block}
+  .nav .ni:hover .dd,.nav .ni:focus-within .dd{transform:none}
+  .dd-t{display:block;position:relative;width:44px;height:44px;padding:0;border:0;background:none;color:var(--sub);cursor:pointer;border-radius:10px}
+  .dd-t::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translate(-50%,-70%) rotate(45deg);transition:transform .2s}
+  .ni.open>.dd-t::before{transform:translate(-50%,-25%) rotate(-135deg)}
+  .dd-t:hover{background:#f5f5f7;color:var(--ink)}
+  body.menu-open{overflow:hidden}
+}
+
+/* phone numbers, postal codes, P/Ns (T33) */
+.nw{white-space:nowrap}
+
+/* accessibility (T36) */
+.psearch:focus-within{box-shadow:0 0 0 3px rgba(0,113,227,.35)}
+.ftr .langs-f a{color:#56565b}
+
+/* product tree on tablet: edge fade + scroll hint; foldable footer on phones; hero contact button (T39) */
+@media (max-width:1279px){
+  .ptm-w{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%)}
+  .ptm-h::after{content:"← →";display:block;margin-top:4px;font-size:13px;letter-spacing:.3em;color:var(--sub)}
+}
+.fd>summary{list-style:none;display:block}
+.fd>summary::-webkit-details-marker{display:none}
+.fcol .fh a{color:inherit;text-decoration:none}
+.fd>a{display:block;margin-top:8px}
+@media (min-width:681px){.fd>summary{pointer-events:none}.fd>summary a{pointer-events:auto}}
+@media (max-width:680px){
+  .fmap{grid-template-columns:minmax(0,1fr);gap:0}
+  .fmap>.fcol{border-bottom:1px solid #e3e3e8}
+  .fmap>.fcol:last-child{border-bottom:0;padding-top:16px;gap:10px}
+  .fd>summary{display:flex;align-items:center;justify-content:space-between;padding:12px 0;margin:0;cursor:pointer;font-size:14px}
+  .fd>summary::after{content:"";width:8px;height:8px;margin-right:6px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+  .fd[open]>summary::after{transform:rotate(-135deg)}
+  .fd>a{margin:0;padding:6px 0}
+  .fd>a:last-child{margin-bottom:10px}
+}
+.bighero .tlinks{align-items:center;flex-wrap:wrap}
+.bighero .tlinks .btn-blue{margin-top:0;min-height:44px;font-size:16px;padding:0 24px}
+.btns .btn-blue{margin-top:0}
+.fcol .fh a:hover{text-decoration:underline}
+
+/* ===================== 2026-11-07 final-fix ===================== */
+/* burger (<=1180px): the desktop hover / focus rule must not make a closed menu's sub-menu visible again (RD-01) */
+@media (max-width:1180px){.nav .ni:hover .dd,.nav .ni:focus-within .dd{visibility:inherit;opacity:1}}
+/* CJK h3, the closing call to action and footer labels break between phrases only (<wbr> from hx()) (RM-03, RD-02, RD-03) */
+.lang-jp :is(main h3,.tcta h2,.fcol a),
+.lang-zh :is(main h3,.tcta h2,.fcol a),
+.lang-tw :is(main h3,.tcta h2,.fcol a){word-break:keep-all;overflow-wrap:break-word}
+/* custom-equipment strip: one card per item, several photos side by side under one caption (RM-02) */
+.pwall .pw-i b{-webkit-line-clamp:3}
+@media (min-width:861px){.pwall.c3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pw-m{grid-column:span var(--n)}
+.pw-ims{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:2px;background:#e3e7ee}
+@media (max-width:860px){.pw-m{grid-column:1/-1}}
+/* stacked tables on phones: the column label keeps its words whole (二九TECH / （熊本本社）, 技術パートナー) (RM-06) */
+@media (max-width:680px){.tbl-wrap.stack .tbl td::before{word-break:keep-all;overflow-wrap:anywhere}:is(.lang-jp,.lang-zh,.lang-tw) .tbl-wrap.stack .tbl td::before{flex-basis:8em}}
+/* home search on 360 px phones: the whole placeholder fits; the field itself stays 16 px so iOS does not zoom (RM-07) */
+@media (max-width:374px){.hsearch{padding-left:12px}.hsearch button{padding:0 14px}.hsearch input::placeholder{font-size:14px}}
+/* 'contain' tile photos: the frame is reserved from the photo's ratio before the lazy image loads (RM-08) */
+.timg.contain img{--mh:400px;width:calc((var(--mh) - 20px) * var(--ar) + 20px);max-width:min(100%,760px,calc(var(--w) + 20px));height:auto}
+.timg.contain .tph img{max-width:min(100%,calc(var(--w) + 20px))}
+.t-half .timg.contain img{--mh:230px}
+@media (max-width:900px){.timg.contain img,.t-half .timg.contain img{--mh:220px}}
+/* footer on phones: a tap on a column label opens the column (the page itself is the column's first link) (RM-09) */
+@media (max-width:680px){.fd>summary a{pointer-events:none}}
+/* vacuum: the stat band sits level with the MKS photo beside it (RD-08) */
+.g-5-7.ikp{align-items:center}
+/* catalog cards without a photo: maker and model, not a button (RD-05) */
+div.pc-ph{cursor:default}
+.pc-noimg b{max-width:100%;padding:0 12px;text-align:center;line-height:1.2;overflow-wrap:anywhere}
+.pc-noimg b.sm{font-size:18px}
+.pc-noimg small{padding:0 12px;text-align:center;line-height:1.35}
