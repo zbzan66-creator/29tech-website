@@ -1008,3 +1008,19 @@ div.pc-ph{cursor:default}
 .pc-noimg b{max-width:100%;padding:0 12px;text-align:center;line-height:1.2;overflow-wrap:anywhere}
 .pc-noimg b.sm{font-size:18px}
 .pc-noimg small{padding:0 12px;text-align:center;line-height:1.35}
+/* 2026-11-07 litho sections (owner: 「这几部分内容记着补充一下」「没有照片」): photos left, scope right, catalog links below */
+.lstack{display:grid;gap:22px}
+.lcard h3{margin-bottom:18px}
+.lsec{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:start}
+.lsec .pwall{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0}
+.lsec .pw-i b{font-size:12.5px;margin:8px 10px 10px}
+.lc-note{font-size:12.5px;color:var(--muted,#6e6e73);margin:10px 2px 0;line-height:1.6}
+.lc-ref{margin-top:18px;padding-top:14px;border-top:1px solid #e3e7ee;display:grid;gap:10px}
+.lc-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.lc-k{font-size:12px;font-weight:700;color:var(--muted,#6e6e73);letter-spacing:.04em;min-width:5.5em}
+.lc-cat,.lc-pn{display:inline-flex;align-items:center;gap:6px;border:1px solid #d5dce7;border-radius:999px;padding:5px 12px;font-size:13px;text-decoration:none;color:var(--blue,#0066cc);background:#fff;line-height:1.3}
+.lc-cat span{color:var(--muted,#6e6e73);font-size:12px}
+.lc-pn{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;white-space:nowrap}
+.lc-cat:hover,.lc-pn:hover{border-color:var(--blue,#0066cc);background:#f2f7fd}
+.page-litho .phero+.sec{padding-top:12px}
+@media (max-width:860px){.lsec{grid-template-columns:minmax(0,1fr);gap:18px}.lc-k{min-width:0;width:100%}}
