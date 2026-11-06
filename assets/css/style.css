@@ -826,3 +826,4 @@ dd.our{color:var(--link,#0066cc)}
 .brand{flex-shrink:0}
 .brand img{max-width:none}
 @media (min-width:1181px){.lang-en .nav .nl{padding:18px 7px;font-size:13px}}
+h1,h2{text-wrap:balance}
