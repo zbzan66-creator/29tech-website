@@ -1024,3 +1024,57 @@ div.pc-ph{cursor:default}
 .lc-cat:hover,.lc-pn:hover{border-color:var(--blue,#0066cc);background:#f2f7fd}
 .page-litho .phero+.sec{padding-top:12px}
 @media (max-width:860px){.lsec{grid-template-columns:minmax(0,1fr);gap:18px}.lc-k{min-width:0;width:100%}}
+/* 2026-11-07 text-only sections (owner: 「只有文字没有图片的都追加一张」): one real photo per section, one frame style everywhere;
+   desktop: beside the text; phones: stacked under the text it illustrates, at 16:9 / 3:2 so the page grows only ~200–280 px per section */
+.r169 .ph{aspect-ratio:16/9}
+.sec .fig.cf .ph,.sec .fig.cf .ph.contain{background:#f5f5f7;border:1px solid #e3e7ee}   /* catalog photos sit on their own #f5f5f7 backdrop: no seam where the frame letterboxes */
+.fig.nat .ph{aspect-ratio:auto;width:100%}
+.fig.nat .ph img{height:auto;display:block}
+.fig.w320 .ph{max-width:320px;margin:0 auto}   /* small original (320 px): never drawn wider than its own pixels */
+.sfig-row{align-items:center}
+/* text block left, photo under the side column (about: table | panel + photo; parts: table | grades + photo) */
+.sg3{grid-template-areas:"a b" "a f";grid-template-rows:auto 1fr}
+.sg3>.sg-a{grid-area:a}.sg3>.sg-b{grid-area:b}.sg3>.sg-f{grid-area:f;align-self:start}
+/* main block full width, then photo beside the closing band (roles, quality) */
+.sgb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"a a" "f b";gap:28px;align-items:center}
+.sgb>.sg-a{grid-area:a}.sgb>.sg-f{grid-area:f}.sgb>.sg-b{grid-area:b;margin-top:0}
+.sgb .fig .ph{aspect-ratio:16/9}   /* beside a short band: a lower frame, so the band does not float in empty space */
+.sfig-c{max-width:520px;margin:0 auto}
+/* one column (tablets, phones): every section photo comes right under the section heading, at a modest size */
+@media (max-width:960px){
+  .sfig{width:100%;max-width:560px;margin-left:auto;margin-right:auto}
+  .sfig-row>.sfig{order:-1}
+  .sg3{grid-template-areas:"f" "a" "b";grid-template-rows:none}
+  .sgb{grid-template-columns:minmax(0,1fr);grid-template-areas:"f" "a" "b"}
+  .sfig .fig.cf.r43 .ph{aspect-ratio:16/9}   /* review: from 960 px down (was 680), so tablet photos are all 16:9 instead of 315 / 420 px in turn */
+  .ikp .sfig .fig.cf.r43 .ph{aspect-ratio:4/3}
+}
+/* contact: the factory card shows the current-site photo (aso-now-sign, same caption as the company page) */
+.addr-ph{margin:18px 0 0}
+.addr-ph img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:55% 50%;border-radius:12px;background:#13213f}
+.addr-ph figcaption{margin-top:8px;font-size:12px;line-height:1.5;color:var(--pale)}
+/* (side-photo grid moved to the 2026-11-07 review block below: it now starts at 681 px) */
+/* home litho tile: real photo + OEM names as a compact chip row under the link */
+.tchips.sm{margin:16px auto 0;padding:0;gap:8px;max-width:none}
+.tchips.sm span{font-size:14px;padding:6px 14px;border-color:rgba(255,255,255,.3)}
+@media (max-width:680px){.tchips.sm{gap:5px;flex-wrap:nowrap}.tchips.sm span{font-size:12px;padding:4px 9px}}
+/* 2026-11-07 text-only review fixes */
+/* home litho chips: a maker name never breaks inside the pill (JP inherits overflow-wrap:anywhere); below 375 px the row may wrap */
+.tchips.sm span{flex:0 0 auto;white-space:nowrap;overflow-wrap:normal;word-break:keep-all}
+@media (max-width:374px){.tchips.sm{flex-wrap:wrap;gap:5px}.tchips.sm span{padding:4px 7px;font-size:11px}.tnote{text-wrap:balance}.lang-jp .tnote{word-break:keep-all}}
+/* contact: the factory card keeps its photo at the side whenever the card is wide enough; 681–959 px: the two cards stack (full width) */
+@media (min-width:681px) and (max-width:959px){.contact .g2{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:681px){
+  .addr-card.has-ph{display:grid;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:auto auto auto 1fr;column-gap:24px;align-items:start}
+  .addr-card.has-ph>:not(.addr-ph){grid-column:1}
+  .addr-card.has-ph>a{justify-self:start}
+  .addr-card.has-ph>.addr-ph{grid-column:2;grid-row:1/span 4;margin:0}
+  .addr-card.has-ph .addr-ph img{aspect-ratio:4/3}
+}
+@media (min-width:960px){.addr-card.has-ph{grid-template-columns:minmax(0,1fr) 180px;column-gap:20px}}
+@media (min-width:1100px){.addr-card.has-ph{grid-template-columns:minmax(0,1fr) 250px;column-gap:24px}}
+.addr-ph figcaption,.fig figcaption{text-wrap:balance}
+.lang-jp .addr-ph figcaption{word-break:auto-phrase}
+/* (JP card heading 幅広い部品カバレッジ at 961–1000 px: a <wbr> after 幅広い in build_site.py; JP card h3 are keep-all) */
+/* photos shown at their own size (CMP tool, head motor, E-band strip): the same thin frame as the catalog photos */
+.sec .fig.nat .ph{border:1px solid #e3e7ee;background:#fff}
