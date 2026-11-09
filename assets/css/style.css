@@ -1112,3 +1112,9 @@ div.pc-ph{cursor:default}
 .tcta .tcta-g{display:inline-block;margin-left:22px;font-size:17px}
 @media (max-width:960px){.gflow{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:680px){.gflow{grid-template-columns:1fr;gap:10px}.gflow li{display:grid;grid-template-columns:34px 1fr;column-gap:12px;padding:16px 18px}.gflow .n{width:32px;height:32px;font-size:14px;margin:0;grid-row:span 2}.gflow h3{margin:4px 0 2px;font-size:16px}.tb-lk{display:none}.contact .cguide{padding:20px}.tcta .tcta-g{display:block;margin:16px 0 0}}
+
+/* 2026-11-09 branch sites (plastics, tools) are separate: small jump links under the copyright (top-bar links are hidden on phones) */
+.ftr .ftr-jump{display:inline-block;margin-top:6px;font-size:12px;color:var(--link);text-decoration:none}
+.ftr .ftr-jump:hover{text-decoration:underline}
+.ftr .ftr-jump+.ftr-jump{margin-left:18px}
+@media (max-width:860px){.tb-br{display:none}}   /* the top bar ran out of room for both branch links (お問い合わせ was cut off at 700 px); the footer keeps them */

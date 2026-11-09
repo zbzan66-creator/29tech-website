@@ -1,0 +1,102 @@
+/* 29TECH Plastics Division (branch site /plastics/) — loaded after style.css on the plastics pages only (build_plastics.py) */
+.pl-brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.pl-div{font-size:13px;font-weight:700;color:var(--ink);padding-left:12px;border-left:1px solid var(--cardl);white-space:nowrap;line-height:1.25}
+.page-plastics .bh-stats{grid-template-columns:repeat(4,1fr)}
+.page-plastics .bh-stats a{cursor:pointer}
+.page-plastics .bh-wall img{object-fit:cover}
+.pl-r{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--blue);margin:0 0 4px}
+.pl-c{text-align:center}
+
+/* business / documents / roadmap cards */
+.pl-bus .card,.pl-docs .card,.pl-road .card{display:flex;flex-direction:column;text-align:left;color:var(--ink)}
+.pl-bus .card h3,.pl-docs .card h3,.pl-road .card h3{font-size:18px;line-height:1.35;margin:6px 0 8px}
+.pl-bus .card .more{margin-top:auto;padding-top:14px}
+.pl-bus .card .n{width:40px;height:40px;font-size:14px;margin-bottom:12px}
+.pl-road .pl-now{background:#0b1730!important}
+.pl-road .pl-now h3{color:#fff}.pl-road .pl-now p{color:#c9d6e8}.pl-road .pl-now .pl-r{color:#8cc0f0}
+
+/* product grid */
+.pl-chips{justify-content:center;flex-wrap:wrap;overflow:visible;margin-bottom:8px}
+.pl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pl-card{background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.sec:not(.alt) .pl-card{background:#f5f5f7}
+.pl-ph{aspect-ratio:1;background:#e8e8ed;overflow:hidden}
+.pl-ph img{width:100%;height:100%;object-fit:cover}
+.pl-b{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.pl-b h3{font-size:16px;line-height:1.35;margin:0 0 10px;color:var(--ink)}
+.pl-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 8px;font-size:13px;line-height:1.45}
+.pl-dl dt{color:var(--sub);white-space:nowrap}
+.pl-dl dd{margin:0;font-weight:600;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.pl-nd{font-size:12.5px;color:var(--sub);margin:0 0 6px}
+.pl-spec{margin-top:4px}
+.pl-spec td,.pl-spec th{font-variant-numeric:tabular-nums}
+
+/* scrap buying */
+.pl-scrap{align-items:start}
+.pl-ph4{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-radius:18px;overflow:hidden}
+.pl-ph4 span{aspect-ratio:4/3;overflow:hidden;background:#e8e8ed}
+.pl-ph4 img{width:100%;height:100%;object-fit:cover}
+.pl-scrap .btns{margin-top:22px}
+.pl-scrap .btns .btn-blue{margin-top:0}
+
+/* transaction flow */
+.pl-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.pl-flow li{position:relative;background:#fff;border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:6px}
+.pl-flow .n{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--link,#0066cc);color:#fff;font-weight:800;font-size:14px}
+.pl-flow b{font-size:16px;color:var(--ink)}
+.pl-flow small{font-size:13px;color:var(--sub);line-height:1.5}
+.pl-flow li:not(:last-child)::after{content:"›";position:absolute;right:-11px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:700;color:var(--blue);z-index:1}
+
+/* about */
+.pl-about{align-items:start}
+.pl-vmv h3{font-size:15px;letter-spacing:.04em;margin-bottom:6px;color:#8cc0f0}
+.pl-vmv h3.mt{margin-top:22px}
+.pl-vmv p{font-size:16px;line-height:1.6;color:#fff}
+
+/* contact */
+.pl-mailcard .btn{margin-top:4px;width:100%;font-size:15px;min-height:48px;text-align:center}
+.pl-mailcard .tag.mt{margin-top:20px}
+.pl-fmap{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width:1180px){
+  .pl-grid{grid-template-columns:repeat(3,1fr)}
+  .pl-flow{grid-template-columns:repeat(3,1fr)}
+  .pl-flow li:nth-child(3)::after{display:none}
+}
+@media (max-width:960px){
+  .page-plastics .bh-stats{grid-template-columns:repeat(2,1fr)}
+  .pl-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+@media (max-width:860px){.page-plastics .bh-stats a:first-child{grid-column:auto}}
+@media (max-width:680px){
+  .pl-div{font-size:11.5px;padding-left:9px;white-space:normal}
+  .pl-brand{flex:0 1 auto;min-width:0}.pl-brand img{flex:none}   /* long labels wrap instead of pushing the menu button off screen */
+  .pl-b{padding:12px 12px 14px}
+  .pl-b h3{font-size:14.5px}
+  .pl-dl{grid-template-columns:1fr;gap:0;font-size:12.5px}
+  .pl-dl dd{margin-bottom:4px}
+  .pl-flow{grid-template-columns:1fr}
+  .pl-flow li{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:12px}
+  .pl-flow small{flex-basis:100%;padding-left:44px;margin-top:-4px}
+  .pl-flow li::after{display:none}
+  .pl-fmap{grid-template-columns:1fr}
+}
+
+/* components & tools branch (/tools/) */
+.tl-figs{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:stretch;align-content:center}
+.tl-figs div{background:#0b1730;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;min-height:150px}
+.tl-figs b{font-size:clamp(28px,3.2vw,46px);font-weight:800;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.tl-figs span{margin-top:8px;font-size:14px;color:#c9d6e8}
+.tl-figs p{grid-column:1/-1;margin:2px 4px 0;font-size:12.5px;color:var(--sub)}
+.tl-cats .capi{cursor:default}
+.tl-cats .capi:hover{transform:none;box-shadow:none}
+.tl-brands{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1040px;margin:0 auto}
+.tl-brands span{background:#f5f5f7;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;letter-spacing:.03em;color:var(--ink)}
+@media (max-width:960px){.tl-figs div{min-height:0;padding:20px 18px}}
+@media (max-width:680px){.tl-brands span{padding:8px 14px;font-size:13px}}
+/* 2026-11-09 review: contact buttons inside .addr-card took the card's link colour (text = button colour) */
+.pl-mailcard .btn-sky{color:var(--navyd)}
+/* properties table: grade codes stay on one line, long headers wrap instead */
+.pl-spec .tbl tbody th{white-space:nowrap}
+.pl-spec .tbl thead th{white-space:normal;vertical-align:bottom}
+.pl-spec .tbl th,.pl-spec .tbl td{padding-left:10px;padding-right:10px;font-size:14px}
