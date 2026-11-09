@@ -100,3 +100,13 @@
 .pl-spec .tbl tbody th{white-space:nowrap}
 .pl-spec .tbl thead th{white-space:normal;vertical-align:bottom}
 .pl-spec .tbl th,.pl-spec .tbl td{padding-left:10px;padding-right:10px;font-size:14px}
+
+/* tools page: product photos on category cards + brand showcase (2026-11-10) */
+.tl-cats .capi img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff;border-radius:12px;margin:-6px 0 10px}
+.tl-bshow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1240px;margin:0 auto 28px}
+.tl-b{background:#fff;border:1px solid #e8e8ed;border-radius:18px;padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px}
+.tl-b img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;margin-bottom:8px}
+.tl-b strong{font-size:15px;letter-spacing:.03em}
+.tl-b span{font-size:13px;color:var(--sub);line-height:1.4}
+@media (max-width:960px){.tl-bshow{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.tl-bshow{gap:10px}.tl-b{padding:10px 12px 12px}.tl-cats .capi img{margin:-4px 0 8px}}
