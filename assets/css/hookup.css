@@ -1,0 +1,17 @@
+/* 29TECH hook-up branch (/hookup/, build_hookup.py) -- loaded after style.css on the branch pages only. Everything else (fonts, colours,
+   cards, the blueprint hero, the schematic, the department bar) is the semiconductor site's own style.css, so the branch reads like its pages. */
+/* brand: logo (to the semiconductor main site) | branch label (to the branch home) */
+.hk-brand{display:flex;align-items:center;gap:12px;flex:none}
+.hk-brand .hk-logo{display:flex;align-items:center}
+.hk-div{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;padding-left:12px;border-left:1px solid var(--cardl);white-space:nowrap;line-height:1.25}
+.hk-div:hover{color:var(--link)}
+/* the tagline on the left of the top bar is a link back to the main site here */
+.topbar a.tagline{color:inherit;text-decoration:none}
+.topbar a.tagline:hover{color:#fff}
+/* footer: branch · semiconductor site · contact */
+.hk-fmap{grid-template-columns:repeat(3,1fr)}
+@media (max-width:680px){
+  .hk-div{font-size:11.5px;padding-left:9px;white-space:normal}
+  .hk-brand{flex:0 1 auto;min-width:0}.hk-brand img{flex:none}
+  .hk-fmap{grid-template-columns:1fr}
+}
